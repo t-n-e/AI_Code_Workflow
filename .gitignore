@@ -1,0 +1,6 @@
+# --- aiworkflow bootstrap ---
+.aiworkflow/
+.claude/
+AGENTS.md
+CLAUDE.md
+CODEX.md
