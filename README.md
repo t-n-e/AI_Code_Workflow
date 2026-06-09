@@ -70,6 +70,7 @@ Skript:
 7. zkopíruje `skills/*/SKILL.md` do `.claude/commands/` jako projektové skills
 8. doplní `.gitignore` o `.aiworkflow/`, `.claude/`, `AGENTS.md`, `CLAUDE.md`, `CODEX.md`
 9. pokud cílový adresář ještě není git repo, provede `git init`
+10. vygeneruje lore skripty do `.aiworkflow/scripts/lore/` (CLI pro sdílenou paměť `~/.lore/`, instaluje se přes `make install-skills`)
 
 Defaultní remote režim vyžaduje přístup do repa a důvěru ve zvolený remote ref. Pokud přístup nechcete nebo nemáte, použijte `--local-only` a mějte vedle skriptu připravené lokální adresáře `agents/` a `tools/`.
 
@@ -340,6 +341,28 @@ Přidání nové skill: vytvoř `skills/<název>/SKILL.md` v tomto repu. Žádn�
 **Kdy použít**: Na konci každé iterace, když jsou všechny tasky hotové (nebo uživatel rozhodl o jejich stavu) a je třeba archivovat výstupy, pushnout větev a zavřít active.md.
 
 **Trigger**: `/close-iteration`
+
+## Lore – sdílená paměť napříč projekty
+
+`lore` je samostatné CLI pro perzistentní znalostní bázi sdílenou napříč projekty (lessons learned, postupy, klientský kontext). Záznamy žijí v `~/.lore/` jako git repo a jsou typované – routují se do `lessons/`, `processes/`, `clients/` a `projects/`. Agenti z lore čtou (grep nad `~/.lore/`) a zapisují výhradně přes `lore new` / `lore git commit`; přímý `git commit` do `~/.lore/` je blokovaný pre-commit hookem (write gate). Lore je defaultně local-only – remote se nastaví, jen když ho sám zadáš.
+
+Při bootstrapu `createProject.sh` vygeneruje lore skripty do `.aiworkflow/scripts/lore/`. Samotné `lore` CLI nainstaluješ do `~/.local/` z vygenerovaného `.aiworkflow/`:
+
+```bash
+make install-skills     # nainstaluje lore CLI do ~/.local/bin a ~/.local/lib/lore/
+make validate-lore      # zvaliduje záznamy v ~/.lore/
+```
+
+Nejčastější příkazy:
+
+```bash
+lore init [--remote <url>]      # inicializuje ~/.lore/ jako git repo
+lore new <typ> "<název>"        # nový záznam (lessons/processes/clients/projects)
+lore health [--json]            # stav ~/.lore/
+lore doctor                     # interaktivní diagnostika
+lore git <git-args>             # git operace nad ~/.lore/ (commit/push/pull)
+lore rescue                     # zachrání existující ~/.lore/ bez git repa
+```
 
 ## Kdy upravovat co
 

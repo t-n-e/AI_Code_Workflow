@@ -68,6 +68,7 @@ The script:
 6. creates the root entry points `AGENTS.md`, `CLAUDE.md`, `CODEX.md`
 7. updates `.gitignore` with `.aiworkflow/`, `AGENTS.md`, `CLAUDE.md`, `CODEX.md`
 8. runs `git init` if the target directory is not yet a git repository
+9. generates lore scripts into `.aiworkflow/scripts/lore/` (CLI for shared memory in `~/.lore/`, installed via `make install-skills`)
 
 The default remote mode requires repository access and trust in the selected remote ref. If you do not want or cannot use that access, use `--local-only` and keep local `agents/` and `tools/` directories next to the script.
 
@@ -319,6 +320,28 @@ To add a new skill: create `skills/<name>/SKILL.md` in this repository. No chang
 **When to use**: At the end of each iteration, once all tasks are done (or the user has decided on their status) and the outputs need to be archived, the branch pushed, and active.md closed.
 
 **Trigger**: `/close-iteration`
+
+## Lore – shared memory across projects
+
+`lore` is a standalone CLI for a persistent knowledge base shared across projects (lessons learned, processes, client context). Records live in `~/.lore/` as a git repository and are typed – routed into `lessons/`, `processes/`, `clients/`, and `projects/`. Agents read from lore (grep over `~/.lore/`) and write exclusively via `lore new` / `lore git commit`; a direct `git commit` into `~/.lore/` is blocked by a pre-commit hook (write gate). Lore is local-only by default – a remote is configured only if you set one yourself.
+
+During bootstrap, `createProject.sh` generates the lore scripts into `.aiworkflow/scripts/lore/`. The `lore` CLI itself is installed into `~/.local/` from the generated `.aiworkflow/`:
+
+```bash
+make install-skills     # installs the lore CLI into ~/.local/bin and ~/.local/lib/lore/
+make validate-lore      # validates the records in ~/.lore/
+```
+
+Most-used commands:
+
+```bash
+lore init [--remote <url>]      # initializes ~/.lore/ as a git repository
+lore new <type> "<name>"        # new record (lessons/processes/clients/projects)
+lore health [--json]            # status of ~/.lore/
+lore doctor                     # interactive diagnostics
+lore git <git-args>             # git operations over ~/.lore/ (commit/push/pull)
+lore rescue                     # rescues an existing ~/.lore/ without a git repo
+```
 
 ## When to change what
 
