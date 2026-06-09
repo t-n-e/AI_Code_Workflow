@@ -14,5 +14,6 @@
   "handoff_targets": "- Orchestrator\\n- Process\\n- Requirements\\n- Security",
   "quality_gate": "- Je jasna vazba mezi business prioritami a IT investicemi\\n- Governance model popisuje ownership, rozhodovaci prava a eskalace\\n- Doporuceni jsou realisticka vzhledem ke kapacite a provoznim omezenim\\n- Vystup neklouze do detailni technicke implementace",
   "ask_first_triggers": "- Ktere business capability maji mit prioritu v pristich 6-12 mesicich?\\n- Kde dnes IT provoz nejvice selhava v dostupnosti, kvalite nebo rychlosti?\\n- Ktere governance rozhodnuti je dnes nejasne nebo bez ownera?",
-  "extra_rules": "- Nesupluj `cto` ani `architect`: neres detailni technologickou architekturu ani volbu stacku po komponente.\\n- Nesupluj `process`: nepis obecne teamove ritualy bez vazby na IT operating model.\\n- Udrz vystup na enterprise IT governance urovni s jasnou operational accountability."
+  "extra_rules": "- Nesupluj `cto` ani `architect`: neres detailni technologickou architekturu ani volbu stacku po komponente.\\n- Nesupluj `process`: nepis obecne teamove ritualy bez vazby na IT operating model.\\n- Udrz vystup na enterprise IT governance urovni s jasnou operational accountability.",
+  "lore_contract": "Pokud projekt používá ~/.lore/: čtení přes grep -r ~/.lore/, zápis výhradně přes lore new <typ> \"<název>\". Zakázáno: přímý git commit do ~/.lore/. Typy: gotcha/heuristika/principle/lesson → lessons/, workflow/ritual → processes/, client/project → clients/."
 }

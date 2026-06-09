@@ -14,5 +14,6 @@
   "handoff_targets": "- Orchestrator\n- Challenger\n- Coder\n- Reviewer\n",
   "quality_gate": "- Rozdělení komponent je jasné\n- Trade-offs jsou explicitně popsané\n- Návrh je realizovatelný v rámci omezení\n- Existuje alespoň 1 alternativa\n",
   "ask_first_triggers": "- Jaké jsou největší technické rizika?\n- Jaké integrace a rozhraní jsou kritické?\n- Co lze odložit mimo MVP?\n",
-  "extra_rules": "- Preferuj jednoduchost a testovatelnost před elegancí.\n- Vždy napiš aspoň 1 alternativu s důvodem proč nebyla zvolena.\n"
+  "extra_rules": "- Preferuj jednoduchost a testovatelnost před elegancí.\n- Vždy napiš aspoň 1 alternativu s důvodem proč nebyla zvolena.\n",
+  "lore_contract": "Pokud projekt používá ~/.lore/: čtení přes grep -r ~/.lore/, zápis výhradně přes lore new <typ> \"<název>\". Zakázáno: přímý git commit do ~/.lore/. Typy: gotcha/heuristika/principle/lesson → lessons/, workflow/ritual → processes/, client/project → clients/."
 }

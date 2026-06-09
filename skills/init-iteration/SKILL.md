@@ -69,12 +69,32 @@ Oznám uživateli navržené iter-ID a zeptej se na potvrzení před pokračová
 
 ---
 
+## Krok 1b – Lore health check (pokud ~/.lore/ existuje)
+
+Pokud `~/.lore/` existuje na systému, ověř zdraví paměti před dalšími kroky:
+
+```bash
+if [ -d "$HOME/.lore" ]; then
+  LORE_STATUS=$(lore health --json 2>/dev/null | grep '"status"' | head -1 || echo '"status": "SKIP"')
+  if echo "$LORE_STATUS" | grep -q "BROKEN"; then
+    echo "WARN: ~/.lore/ je poškozena. Pokračuji, ale lore lookup nebude funkční."
+    echo "Doporučuji spustit: lore rescue"
+  fi
+fi
+```
+
+**Health check je informativní, ne blocker** – iterace se spustí i při BROKEN stavu, jen orchestrátor přijde o lore lookup v dispatchi.
+
+Pokud `~/.lore/` neexistuje, krok přeskoč bez varování.
+
+---
+
 ## Krok 2 – Spusť make init-iteration
 
 Spusť inicializaci iterace:
 
 ```bash
-make init-iteration ITER=<iter-ID>
+make -C .aiworkflow init-iteration ITER=<iter-ID>
 ```
 
 Ověř výstup: musí obsahovat `Iterace vytvořena:`. Pokud příkaz selže nebo výstup neobsahuje tento řetězec → **zastav se**, vypiš výstup a oznám uživateli chybu.
@@ -86,6 +106,47 @@ ls -la .aiworkflow/orchestration/plans/active.md
 ```
 
 Symlink musí ukazovat na `.aiworkflow/orchestration/runs/<iter-ID>/plan.md`.
+
+---
+
+## Krok 2a – Zadání iterace (assignments)
+
+Zkontroluj, zda uživatel předem vyplnil zadání iterace offline:
+
+```bash
+cat .aiworkflow/orchestration/assignments/<iter-ID>.md 2>/dev/null || echo "MISSING"
+```
+
+**Pokud soubor obsahuje pre-fill od uživatele** (sekce Cíl iterace obsahuje jinou hodnotu než `–`) → přečti ho, pochop kontext a scope. Toto zadání bude mít přednost před goalem zadaným v příkazu. Informuj uživatele: „Nalezeno předvyplněné zadání iterace – použiji ho jako základ."
+
+**Pokud soubor je template** (sekce Cíl iterace obsahuje `–`) → zadání vyplníme v Kroku 4. Pokračuj.
+
+**Pokud soubor chybí úplně** (makeskript selhal?) → vytvoř ho ručně:
+```bash
+cat > .aiworkflow/orchestration/assignments/<iter-ID>.md << 'EOF'
+# Zadání iterace <iter-ID>
+
+- **Iterace**: <iter-ID>
+- **Datum**: <YYYY-MM-DD>
+- **Stav**: active
+
+## Cíl iterace (jedna věta)
+–
+
+## Kontext / motivace
+–
+
+## Scope IN
+–
+
+## Scope OUT
+–
+
+## Poznámky / otevřené otázky
+–
+EOF
+ln -sf "../assignments/<iter-ID>.md" .aiworkflow/orchestration/assignments/active.md
+```
 
 ---
 
@@ -105,7 +166,18 @@ git status --short
 
 Počkej na odpověď a postupuj podle ní. Nepokračuj na vytvoření větve dokud není working tree čistý.
 
-Po vyřešení (nebo pokud byl tree čistý) zkontroluj aktuální větev:
+Po vyřešení (nebo pokud byl tree čistý) zkontroluj aktuální větev a **přejdi na main/master**:
+
+**Pokud máme remote origin** → před vytvořením větve vždy pull main:
+```bash
+# Ověř, že remote existuje
+if git remote get-url origin 2>/dev/null; then
+  git checkout main 2>/dev/null || git checkout master 2>/dev/null
+  git pull origin main 2>/dev/null || git pull origin master 2>/dev/null
+fi
+```
+
+Tím zajistíš, že nová větev vznikne z aktuálního stavu main a nebude mít zbytečné konflikty v PR.
 
 **Pokud jsme na `main` nebo `master`:**
 ```bash
@@ -132,6 +204,8 @@ cat .aiworkflow/orchestration/plans/active.md
 
 ### 4a – Goal
 
+Pokud bylo v Kroku 2a nalezeno pre-fillované zadání → použij goal z něj.
+
 Pokud uživatel zadal goal v příkazu → použij ho.
 
 Pokud goal chybí → **zastav se** a zeptej se: „Jaký je cíl této iterace? (jedna věta)"
@@ -142,6 +216,11 @@ Vyplň do plan.md (použij **Edit** tool, ne Write – zachovej strukturu templa
 - Nahraď placeholder pro Goal hodnotou od uživatele
 - Nahraď placeholder pro Created aktuálním datem ve formátu `YYYY-MM-DD`
 - Nastav Status na `active`
+
+Vyplň také `assignments/active.md` pokud je stále template (použij **Edit** tool):
+- Nahraď `–` v sekci „Cíl iterace" goalem
+- Nastav datum
+- Ostatní sekce (Kontext, Scope IN/OUT) vyplň z kontextu pokud víš, jinak nechej `–` a poznamenej uživateli že je může doplnit offline
 
 ### 4b – Mandatorní prefix Master Checklistu
 
@@ -204,7 +283,7 @@ Ověř nebo doplň, že plan.md obsahuje sekci Quality Gates:
 Po vyplnění plan.md spusť regeneraci dashboardu:
 
 ```bash
-make dashboard
+make -C .aiworkflow dashboard
 ```
 
 Ověř, že příkaz skončil s exit code 0. Pokud selže → **zastav se**, vypiš výstup a oznám uživateli chybu.
@@ -240,6 +319,8 @@ Informuj uživatele o výsledku inicializace:
 - **Git větev**: `<branch>`
 - **Plan**: `.aiworkflow/orchestration/runs/<iter-ID>/plan.md`
 - **Active symlink**: `.aiworkflow/orchestration/plans/active.md`
+- **Zadání iterace**: `.aiworkflow/orchestration/assignments/<iter-ID>.md`
+- **Assignment symlink**: `.aiworkflow/orchestration/assignments/active.md`
 - **Dashboard**: regenerován (`make dashboard` OK)
 - **Quality gate**: PASSED
 - **Mandatorní start**: T-001 architect → T-002 reviewer → T-003 architect → T-004 human → implementace → T-NNN human (closing gate)

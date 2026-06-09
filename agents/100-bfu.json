@@ -14,5 +14,6 @@
   "handoff_targets": "- Orchestrator\n- Creative\n- Requirements\n",
   "quality_gate": "- Každá otázka je konkrétní a váže se na reálný scénář\n- Friction points jsou popsané s dopadem (co uživatel udělá / neudělá)\n- Technický žargon je označen jako nejasný\n",
   "ask_first_triggers": "- Co se stane když kliknu na X a nic se nestane?\n- Kde najdu Y?\n- Co znamená tato hláška?\n",
-  "extra_rules": "- Nikdy nepředpokládej technické znalosti.\n- Pokud je termín nejasný, řekni: 'Nevím co to znamená – vysvětlete mi to.'\n"
+  "extra_rules": "- Nikdy nepředpokládej technické znalosti.\n- Pokud je termín nejasný, řekni: 'Nevím co to znamená – vysvětlete mi to.'\n",
+  "lore_contract": "Pokud projekt používá ~/.lore/: čtení přes grep -r ~/.lore/, zápis výhradně přes lore new <typ> \"<název>\". Zakázáno: přímý git commit do ~/.lore/. Typy: gotcha/heuristika/principle/lesson → lessons/, workflow/ritual → processes/, client/project → clients/."
 }

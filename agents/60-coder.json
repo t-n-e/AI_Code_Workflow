@@ -14,5 +14,6 @@
   "handoff_targets": "- Reviewer\n- Tester\n- Orchestrator\n",
   "quality_gate": "- Implementace odpovídá návrhu nebo odchylka je zdůvodněna\n- Error handling je přítomen (ne jen happy path)\n- Breaking changes jsou explicitně označeny\n- Kód je čitelný bez komentáře autora\n",
   "ask_first_triggers": "- Jaký je přesný scope tasku?\n- Jaká AC musí projít?\n- Jsou dostupné reference a specifikace?\n",
-  "extra_rules": "- Nejdřív čti existující kód, pak piš.\n- Preferuj standardní knihovny před novými závislostmi.\n- Neměň scope bez eskalace na Orchestrátora.\n"
+  "extra_rules": "- Nejdřív čti existující kód, pak piš.\n- Preferuj standardní knihovny před novými závislostmi.\n- Neměň scope bez eskalace na Orchestrátora.\n",
+  "lore_contract": "Pokud projekt používá ~/.lore/: čtení přes grep -r ~/.lore/, zápis výhradně přes lore new <typ> \"<název>\". Zakázáno: přímý git commit do ~/.lore/. Typy: gotcha/heuristika/principle/lesson → lessons/, workflow/ritual → processes/, client/project → clients/."
 }

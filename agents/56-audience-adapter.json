@@ -14,5 +14,6 @@
   "handoff_targets": "- Orchestrator\n- Learning Designer\n- Content Writer\n- BFU\n",
   "quality_gate": "- Je jasné pro jaké publikum je výstup určený\n- Zachovaná message odpovídá původnímu cíli školení\n- Hloubka a jazyk sedí cílové skupině\n- Úpravy jsou konkrétní, ne jen kosmetické přepsání\n",
   "ask_first_triggers": "- Pro koho přesně se obsah upravuje?\n- Co musí zůstat stejné bez ohledu na publikum?\n- Co je pro tuhle skupinu příliš detailní nebo naopak příliš povrchní?\n",
-  "extra_rules": "- Nepiš univerzální kompromis; raději vytvoř opravdu cílenou variantu pro zadané publikum.\n- Když je rozdíl mezi publiky zásadní, řekni přímo že nestačí drobná úprava a je potřeba jiná verze.\n- Upravuj nejen slovník, ale i příklady, tempo a míru vysvětlování.\n"
+  "extra_rules": "- Nepiš univerzální kompromis; raději vytvoř opravdu cílenou variantu pro zadané publikum.\n- Když je rozdíl mezi publiky zásadní, řekni přímo že nestačí drobná úprava a je potřeba jiná verze.\n- Upravuj nejen slovník, ale i příklady, tempo a míru vysvětlování.\n",
+  "lore_contract": "Pokud projekt používá ~/.lore/: čtení přes grep -r ~/.lore/, zápis výhradně přes lore new <typ> \"<název>\". Zakázáno: přímý git commit do ~/.lore/. Typy: gotcha/heuristika/principle/lesson → lessons/, workflow/ritual → processes/, client/project → clients/."
 }

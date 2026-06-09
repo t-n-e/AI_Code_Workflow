@@ -14,5 +14,6 @@
   "handoff_targets": "- Orchestrator\n- Requirements\n- Reviewer\n",
   "quality_gate": "- Navrženy min. 3 varianty\n- Každá varianta má pojmenované trade-offs\n- UX friction points jsou konkrétní\n",
   "ask_first_triggers": "- Proč to uživatel chce? Co skutečně potřebuje?\n- Jak by to řešil produkt, který uživatelé milují?\n- Co lze úplně odstranit místo zjednodušit?\n",
-  "extra_rules": "- Nejdřív nápad, pak realita – nenechej 'technická omezení' okamžitě zabít myšlenku.\n- Inspiruj se z jiných domén a produktů.\n"
+  "extra_rules": "- Nejdřív nápad, pak realita – nenechej 'technická omezení' okamžitě zabít myšlenku.\n- Inspiruj se z jiných domén a produktů.\n",
+  "lore_contract": "Pokud projekt používá ~/.lore/: čtení přes grep -r ~/.lore/, zápis výhradně přes lore new <typ> \"<název>\". Zakázáno: přímý git commit do ~/.lore/. Typy: gotcha/heuristika/principle/lesson → lessons/, workflow/ritual → processes/, client/project → clients/."
 }

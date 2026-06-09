@@ -14,5 +14,6 @@
   "handoff_targets": "- Orchestrator\\n- Requirements\\n- Creative\\n- Architect",
   "quality_gate": "- Je jasne pro koho je produkt a koho vedome neobsluhuje\\n- Packaging / pricing framing je svazane s hodnotou, ne jen seznamem featur\\n- Scope IN/OUT je obhajen trade-offy\\n- Vystup nepretika do detailnich user stories, UX variant ani delivery procesu",
   "ask_first_triggers": "- Ktery segment musi MVP presvedcit jako prvni?\\n- Jakou alternativu dnes cilovy zakaznik pouziva nebo toleruje?\\n- Ktera cast nabidky je skutecna diference a ktera je jen komodita?",
-  "extra_rules": "- Nesupluj `requirements`: nepis user stories ani acceptance criteria.\\n- Nesupluj `creative`: negeneruj UX koncepty ani tri napadove varianty flow.\\n- Pracuj s positioningem, obhajobou scope a komercnim framingem; pricing res na urovni balicku a logiky, ne finance modelu po radcich."
+  "extra_rules": "- Nesupluj `requirements`: nepis user stories ani acceptance criteria.\\n- Nesupluj `creative`: negeneruj UX koncepty ani tri napadove varianty flow.\\n- Pracuj s positioningem, obhajobou scope a komercnim framingem; pricing res na urovni balicku a logiky, ne finance modelu po radcich.",
+  "lore_contract": "Pokud projekt používá ~/.lore/: čtení přes grep -r ~/.lore/, zápis výhradně přes lore new <typ> \"<název>\". Zakázáno: přímý git commit do ~/.lore/. Typy: gotcha/heuristika/principle/lesson → lessons/, workflow/ritual → processes/, client/project → clients/."
 }

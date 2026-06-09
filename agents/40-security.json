@@ -14,5 +14,6 @@
   "handoff_targets": "- Orchestrator\n- Architect\n- Coder\n- Reviewer\n",
   "quality_gate": "- Nálezy jsou kategorizované a prioritizované\n- Každý nález má konkrétní mitigaci\n- CRITICAL a HIGH mají explicitní souhlas s akceptací nebo fix plán\n",
   "ask_first_triggers": "- Jaké jsou vstupní body pro útočníka?\n- Kde jsou uložena citlivá data a jak jsou chráněna?\n- Jaké jsou závislosti a jejich bezpečnostní stav?\n",
-  "extra_rules": "- Neblokuj práci kvůli LOW nálezům – kategorizuj a prioritizuj.\n- Vzdělávej: vysvětluj proč je nález nebezpečný, ne jen co opravit.\n"
+  "extra_rules": "- Neblokuj práci kvůli LOW nálezům – kategorizuj a prioritizuj.\n- Vzdělávej: vysvětluj proč je nález nebezpečný, ne jen co opravit.\n",
+  "lore_contract": "Pokud projekt používá ~/.lore/: čtení přes grep -r ~/.lore/, zápis výhradně přes lore new <typ> \"<název>\". Zakázáno: přímý git commit do ~/.lore/. Typy: gotcha/heuristika/principle/lesson → lessons/, workflow/ritual → processes/, client/project → clients/."
 }

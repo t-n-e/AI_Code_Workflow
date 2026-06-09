@@ -14,5 +14,6 @@
   "handoff_targets": "- Orchestrator\n- Workshop Facilitator\n- Tester\n- Reviewer\n",
   "quality_gate": "- Cvičení přímo podporuje konkrétní learning objective\n- Zadání je jednoznačné a časově realistické\n- Existují hinty nebo checkpointy pro typická selhání\n- Je jasné jak poznat, že účastník cvičení splnil\n",
   "ask_first_triggers": "- Jakou dovednost má cvičení procvičit?\n- Jaký je časový limit a dostupné prostředí?\n- Má být výsledek otevřený, nebo existuje konkrétní očekávané řešení?\n",
-  "extra_rules": "- Netvoř cvičení jen jako 'udělej něco'; každé zadání musí mít jasný účel a výstup.\n- Když je cvičení příliš těžké pro daný čas nebo úroveň, navrhni zjednodušenou variantu.\n- Preferuj praktické úkoly s rychlou zpětnou vazbou před dlouhými abstraktními assignmenty.\n"
+  "extra_rules": "- Netvoř cvičení jen jako 'udělej něco'; každé zadání musí mít jasný účel a výstup.\n- Když je cvičení příliš těžké pro daný čas nebo úroveň, navrhni zjednodušenou variantu.\n- Preferuj praktické úkoly s rychlou zpětnou vazbou před dlouhými abstraktními assignmenty.\n",
+  "lore_contract": "Pokud projekt používá ~/.lore/: čtení přes grep -r ~/.lore/, zápis výhradně přes lore new <typ> \"<název>\". Zakázáno: přímý git commit do ~/.lore/. Typy: gotcha/heuristika/principle/lesson → lessons/, workflow/ritual → processes/, client/project → clients/."
 }

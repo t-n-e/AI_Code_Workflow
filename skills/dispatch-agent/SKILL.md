@@ -41,6 +41,26 @@ The brief must explicitly tell the agent where to write its output. The orchestr
 
 Follow these steps in order:
 
+### 0.5 Lore Lookup (POVINNÝ – před každým briefem)
+
+Před zapsáním briefu proveď lore lookup pro keywords daného tasku:
+
+```bash
+LORE_HITS=$(grep -r "<task-keyword>" ~/.lore/knowledge/ ~/.lore/lessons/ 2>/dev/null \
+  | grep -v "^Binary" | head -10)
+```
+
+Pravidla:
+- Použij 2–3 klíčová slova z popisu tasku (ne obecná slova jako "task" nebo "implement")
+- Výsledek (nebo `—` pokud prázdný) vlož jako obsah sekce `## Lore Context` v briefu
+- Hard limit: max 5 relevantních hitů; pokud je víc, vyber nejrelevantnější
+- Scope lookup: POUZE `~/.lore/knowledge/` + `~/.lore/lessons/`
+- NIKDY: grep do `~/.lore/intel-pass/` (intel-pass je VŽDY manuální skill `/intel-pass`)
+- NIKDY: grep do `~/.lore/clients/` automaticky (klientská data)
+- `~/.lore/processes/` jen pro tasky o workflow procesech
+
+I prázdný lookup musí být zaznamenán – sekce `## Lore Context` v briefu nesmí chybět; pokud nic relevantního, hodnota je `—`.
+
 ### 1. Write the brief
 Use the template at `.aiworkflow/shared/templates/brief-template.md` — fill every section, no placeholders left behind.
 Save the completed brief to `agents/<agent-slug>/context/inbox/<brief>.md`.
@@ -149,6 +169,27 @@ Then continue to the next task.
 ## Parallel Batch Dispatch
 
 When dispatching multiple independent agents in one iteration step:
+
+### 0.5 Lore Lookup pro každý task (POVINNÝ – před každým briefem)
+
+Před zapsáním všech briefů proveď lore lookup pro každý task samostatně:
+
+```bash
+# Pro každý task v batchi:
+LORE_HITS=$(grep -r "<task-keyword>" ~/.lore/knowledge/ ~/.lore/lessons/ 2>/dev/null \
+  | grep -v "^Binary" | head -10)
+```
+
+Pravidla (stejná jako pro Single Dispatch):
+- Použij 2–3 klíčová slova z popisu konkrétního tasku (ne sdílené keywords pro celý batch)
+- Výsledek (nebo `—` pokud prázdný) vlož jako obsah sekce `## Lore Context` v briefu daného agenta
+- Hard limit: max 5 relevantních hitů per brief
+- Scope lookup: POUZE `~/.lore/knowledge/` + `~/.lore/lessons/`
+- NIKDY: grep do `~/.lore/intel-pass/` (intel-pass je VŽDY manuální)
+- NIKDY: grep do `~/.lore/clients/` automaticky
+- `~/.lore/processes/` jen pro tasky o workflow procesech
+
+Každý brief v batchi musí mít vyplněnou sekci `## Lore Context`; prázdný výsledek = `—`, sekce nesmí chybět.
 
 ### 1. Write all briefs
 Use `.aiworkflow/shared/templates/brief-template.md` for each agent — fill every section, no placeholders left behind.

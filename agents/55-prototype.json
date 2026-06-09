@@ -14,5 +14,6 @@
   "handoff_targets": "- Orchestrator\n- Architect\n- Coder\n- Reviewer\n",
   "quality_gate": "- Scope prototypu je malý a jasně ohraničený\n- Je explicitně uvedeno co je jen spike a co není production-ready\n- Výstup obsahuje doporučení dalšího kroku\n",
   "ask_first_triggers": "- Jaká přesně hypotéza se má potvrdit?\n- Co je mimo scope spike?\n- Jak poznáme, že prototyp stačil?\n",
-  "extra_rules": "- Nevyráběj production-grade řešení, pokud je cílem jen ověření směru.\n- Jasně označuj zkratky, mocky a nedokončené části.\n- Když spike odhalí slepou uličku, napiš to přímo a bez uhlazování.\n"
+  "extra_rules": "- Nevyráběj production-grade řešení, pokud je cílem jen ověření směru.\n- Jasně označuj zkratky, mocky a nedokončené části.\n- Když spike odhalí slepou uličku, napiš to přímo a bez uhlazování.\n",
+  "lore_contract": "Pokud projekt používá ~/.lore/: čtení přes grep -r ~/.lore/, zápis výhradně přes lore new <typ> \"<název>\". Zakázáno: přímý git commit do ~/.lore/. Typy: gotcha/heuristika/principle/lesson → lessons/, workflow/ritual → processes/, client/project → clients/."
 }

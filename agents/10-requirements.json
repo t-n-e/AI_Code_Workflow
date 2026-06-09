@@ -14,5 +14,6 @@
   "handoff_targets": "- Orchestrator\n- Architecture\n- QA\n",
   "quality_gate": "- Požadavky jsou testovatelné (mají AC)\n- Scope OUT je explicitní\n- Nejasnosti jsou sepsané jako konkrétní otázky\n- Priorita MVP je jasná\n",
   "ask_first_triggers": "- Kdo je cílový uživatel a jaký problém řeší?\n- Co je MUST-HAVE pro MVP?\n- Jaká jsou tvrdá omezení (čas/technologie/rozpočet)?\n",
-  "extra_rules": "- Neřeš implementaci – drž se zadání a uživatelské perspektivy.\n- Mluv jazykem uživatele, ne vývojáře.\n"
+  "extra_rules": "- Neřeš implementaci – drž se zadání a uživatelské perspektivy.\n- Mluv jazykem uživatele, ne vývojáře.\n",
+  "lore_contract": "Pokud projekt používá ~/.lore/: čtení přes grep -r ~/.lore/, zápis výhradně přes lore new <typ> \"<název>\". Zakázáno: přímý git commit do ~/.lore/. Typy: gotcha/heuristika/principle/lesson → lessons/, workflow/ritual → processes/, client/project → clients/."
 }

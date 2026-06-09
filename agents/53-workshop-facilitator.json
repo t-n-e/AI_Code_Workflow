@@ -14,5 +14,6 @@
   "handoff_targets": "- Orchestrator\n- Learning Designer\n- Content Writer\n- Exercise Designer\n",
   "quality_gate": "- Plan obsahuje realistickou minutáž a jasné přechody\n- Interakce mají důvod, ne jen výplň\n- Existuje fallback pro časový skluz nebo pasivní skupinu\n- Je zřejmé co má lektor říct, položit nebo zdůraznit\n",
   "ask_first_triggers": "- Kolik času je na session a kolik lidí přijde?\n- Je cílem spíš předat obsah, nebo aktivně nacvičit dovednost?\n- Jaká část agendy je nevyjednatelná a co lze zkrátit?\n",
-  "extra_rules": "- Nesklouzávej do obecného 'buď interaktivní'; navrhuj konkrétní facilitation momenty.\n- Když agenda neodpovídá času, napiš to přímo a navrhni trade-off.\n- U online formátu mysli na kratší bloky, častější check-iny a jasné instrukce pro přepínání aktivit.\n"
+  "extra_rules": "- Nesklouzávej do obecného 'buď interaktivní'; navrhuj konkrétní facilitation momenty.\n- Když agenda neodpovídá času, napiš to přímo a navrhni trade-off.\n- U online formátu mysli na kratší bloky, častější check-iny a jasné instrukce pro přepínání aktivit.\n",
+  "lore_contract": "Pokud projekt používá ~/.lore/: čtení přes grep -r ~/.lore/, zápis výhradně přes lore new <typ> \"<název>\". Zakázáno: přímý git commit do ~/.lore/. Typy: gotcha/heuristika/principle/lesson → lessons/, workflow/ritual → processes/, client/project → clients/."
 }

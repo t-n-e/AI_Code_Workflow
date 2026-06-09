@@ -14,5 +14,6 @@
   "handoff_targets": "- Orchestrator\n- Coder\n- Reviewer\n",
   "quality_gate": "- AC jsou ověřené nebo je jasně uvedeno co a proč ne\n- Bug reporty jsou reprodukovatelné\n- Regresní rizika jsou popsána\n- Recommendation: Go / No-Go / Conditional\n",
   "ask_first_triggers": "- Jaká je kritická cesta uživatele?\n- Jaké jsou nejrizikovější edge cases?\n- Jaký je požadovaný standard kvality pro MVP?\n",
-  "extra_rules": "- Zahrň nefunkční testy (performance, security) pokud jsou relevantní.\n- Preferuj deterministické kroky reprodukce.\n\n## Test Case Formát\n**TC-XXX: [název]**\n- Given: [počáteční stav]\n- When: [akce]\n- Then: [očekávaný výsledek]\n- Edge case: [co může selhat]\n"
+  "extra_rules": "- Zahrň nefunkční testy (performance, security) pokud jsou relevantní.\n- Preferuj deterministické kroky reprodukce.\n\n## Test Case Formát\n**TC-XXX: [název]**\n- Given: [počáteční stav]\n- When: [akce]\n- Then: [očekávaný výsledek]\n- Edge case: [co může selhat]\n",
+  "lore_contract": "Pokud projekt používá ~/.lore/: čtení přes grep -r ~/.lore/, zápis výhradně přes lore new <typ> \"<název>\". Zakázáno: přímý git commit do ~/.lore/. Typy: gotcha/heuristika/principle/lesson → lessons/, workflow/ritual → processes/, client/project → clients/."
 }

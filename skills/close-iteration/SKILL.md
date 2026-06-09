@@ -173,6 +173,22 @@ Ověř výstup — musí obsahovat `Iterace <iter-ID> uzavřena.`
 
 Pokud výstup tento řetězec neobsahuje nebo skript skončí s chybou → vypiš výstup a zastav se. Ověř stav ručně.
 
+Ověř, že skript odstranil oba symlinky:
+
+```bash
+ls -la .aiworkflow/orchestration/plans/active.md 2>/dev/null && echo "WARN: plans/active.md stále existuje"
+ls -la .aiworkflow/orchestration/assignments/active.md 2>/dev/null && echo "WARN: assignments/active.md stále existuje"
+```
+
+Oba by měly vrátit chybu (soubor neexistuje). Pokud existují → odstraň je ručně:
+
+```bash
+rm -f .aiworkflow/orchestration/plans/active.md
+rm -f .aiworkflow/orchestration/assignments/active.md
+```
+
+Archivní soubory (`assignments/<iter-ID>.md`, `runs/<iter-ID>/`) zůstávají — nesmazávat.
+
 ---
 
 ## Krok 7b – Aktualizuj per-agent metrics summary
@@ -210,4 +226,4 @@ Informuj uživatele:
 - Push: OK
 - PR: vytvořen `<URL>` / přeskočen
 - Exit summary: `.aiworkflow/orchestration/runs/<iter-ID>/exit-summary.md`
-- Tip: příští iterace → `make init-iteration ITER=iter-XXX`
+- Tip: příští iterace → `make -C .aiworkflow init-iteration ITER=iter-XXX`

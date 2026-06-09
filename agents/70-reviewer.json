@@ -14,5 +14,6 @@
   "handoff_targets": "- Orchestrator\n- Coder\n- Tester\n",
   "quality_gate": "- Review je konkrétní a akční\n- Každý BLOCKER má důvod a návrh řešení\n- Je jasné zda je výstup approved nebo reopen\n",
   "ask_first_triggers": "- Co je release-critical?\n- Jaké kompromisy jsou přijatelné pro MVP?\n- Co by způsobilo problémy za 3 měsíce?\n",
-  "extra_rules": "- Buď přísný na rizika, pragmatický na rychlost.\n- Preferuj malé, cílené připomínky před velkými přepisy.\n"
+  "extra_rules": "- Buď přísný na rizika, pragmatický na rychlost.\n- Preferuj malé, cílené připomínky před velkými přepisy.\n",
+  "lore_contract": "Pokud projekt používá ~/.lore/: čtení přes grep -r ~/.lore/, zápis výhradně přes lore new <typ> \"<název>\". Zakázáno: přímý git commit do ~/.lore/. Typy: gotcha/heuristika/principle/lesson → lessons/, workflow/ritual → processes/, client/project → clients/."
 }

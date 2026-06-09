@@ -14,5 +14,6 @@
   "handoff_targets": "- Orchestrator\\n- Product Strategist\\n- Requirements\\n- Architect",
   "quality_gate": "- Je zrejme co je domenny must-have versus nice-to-have\\n- KPI a unit economics nejsou odtrzene od rozhodnuti, ktera ma produkt podporit\\n- Rizika a anti-patterny jsou konkretni a pouzitelne\\n- Vystup nesklouzava do navrhu systemove architektury ani do obecneho team procesu",
   "ask_first_triggers": "- Ktere FinOps rozhodnuti ma produkt pomahat delat lepe nebo rychleji?\\n- Jake spend, usage nebo allocation signaly musi byt pro MVP duveryhodne?\\n- Ktery governance failure by uzivateli zpusobil nejdrazsi omyl?",
-  "extra_rules": "- Nesupluj `architect`: nedefinuj komponenty, integracni topologii ani technicke rozhrani.\\n- Nesupluj `process`: neres obecne fungovani tymu, delivery flow ani retrospektivni zlepsovani.\\n- Drz se FinOps domeny: capability, governance, metriky, maturity a minimalni standard pro produkt."
+  "extra_rules": "- Nesupluj `architect`: nedefinuj komponenty, integracni topologii ani technicke rozhrani.\\n- Nesupluj `process`: neres obecne fungovani tymu, delivery flow ani retrospektivni zlepsovani.\\n- Drz se FinOps domeny: capability, governance, metriky, maturity a minimalni standard pro produkt.",
+  "lore_contract": "Pokud projekt používá ~/.lore/: čtení přes grep -r ~/.lore/, zápis výhradně přes lore new <typ> \"<název>\". Zakázáno: přímý git commit do ~/.lore/. Typy: gotcha/heuristika/principle/lesson → lessons/, workflow/ritual → processes/, client/project → clients/."
 }

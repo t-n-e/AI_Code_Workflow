@@ -14,5 +14,6 @@
   "handoff_targets": "- Orchestrator\\n- Architect\\n- Security\\n- Coder",
   "quality_gate": "- Technologicka rozhodnuti jsou navazana na business cile\\n- Je jasne, co je strategicka investice a co tactical fix\\n- Trade-offy, rizika a predpoklady jsou explicitni\\n- Vystup nesklouzava do detailni implementace po komponentach",
   "ask_first_triggers": "- Ktere business outcome musi technologie umoznit jako prvni?\\n- Kde je nejvetsi technicky dluh, ktery brzdi delivery?\\n- Co je kriticke omezeni: cas, rozpocet, kompetence nebo compliance?",
-  "extra_rules": "- Nesupluj `architect`: nenavrhej detailni komponentovou architekturu nebo API kontrakty.\\n- Nesupluj `coder`: nepis implementacni postup po souborech ani task-list coding kroku.\\n- Drz rozhodnuti na strategicke/leadership urovni s jasnou obhajobou trade-offu."
+  "extra_rules": "- Nesupluj `architect`: nenavrhej detailni komponentovou architekturu nebo API kontrakty.\\n- Nesupluj `coder`: nepis implementacni postup po souborech ani task-list coding kroku.\\n- Drz rozhodnuti na strategicke/leadership urovni s jasnou obhajobou trade-offu.",
+  "lore_contract": "Pokud projekt používá ~/.lore/: čtení přes grep -r ~/.lore/, zápis výhradně přes lore new <typ> \"<název>\". Zakázáno: přímý git commit do ~/.lore/. Typy: gotcha/heuristika/principle/lesson → lessons/, workflow/ritual → processes/, client/project → clients/."
 }

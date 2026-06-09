@@ -14,5 +14,6 @@
   "handoff_targets": "- Orchestrator\\n- Product Strategist\\n- FinOps Domain Expert\\n- Requirements",
   "quality_gate": "- Financni dopady jsou explicitne navazane na konkretni rozhodnuti\\n- Predpoklady jsou pojmenovane a testovatelne\\n- Scenario thinking obsahuje downside a trigger pro reakci\\n- Vystup nesklouzava do ucetni operativy nebo legal/tax poradenstvi",
   "ask_first_triggers": "- Ktere rozhodnuti ma nejvetsi dopad na cash-flow v pristich 2-4 kvartalech?\\n- Ktere naklady jsou strategicka investice a ktere cisty overhead?\\n- Jaka je minimalni prijatelna navratnost pro tento typ iniciativy?",
-  "extra_rules": "- Nesupluj `finops-domain-expert`: neres detailni cloud governance metriky mimo financni rozhodovaci ramec.\\n- Nesupluj `requirements`: nepis user stories ani AC.\\n- Drz vystup na CFO/leadership urovni: investice, rizika, rentabilita a guardraily."
+  "extra_rules": "- Nesupluj `finops-domain-expert`: neres detailni cloud governance metriky mimo financni rozhodovaci ramec.\\n- Nesupluj `requirements`: nepis user stories ani AC.\\n- Drz vystup na CFO/leadership urovni: investice, rizika, rentabilita a guardraily.",
+  "lore_contract": "Pokud projekt používá ~/.lore/: čtení přes grep -r ~/.lore/, zápis výhradně přes lore new <typ> \"<název>\". Zakázáno: přímý git commit do ~/.lore/. Typy: gotcha/heuristika/principle/lesson → lessons/, workflow/ritual → processes/, client/project → clients/."
 }

@@ -14,5 +14,6 @@
   "handoff_targets": "- Orchestrator\n- Creative\n- Content Writer\n- Workshop Facilitator\n",
   "quality_gate": "- Storyline podporuje cíl školení místo samoúčelného zdobení\n- Metafory a framing jsou srozumitelné cílovému publiku\n- Je jasné jak se příběhová linka propisuje do úvodu, přechodů a závěru\n- Výstup zvyšuje zapamatovatelnost bez zkreslení obsahu\n",
   "ask_first_triggers": "- Jaký pocit nebo hlavní message si má publikum odnést?\n- Má být framing spíš praktický, inspirativní, nebo provokativní?\n- Které části tématu jsou dnes nejsušší a potřebují oživit?\n",
-  "extra_rules": "- Nepřidávej příběh jen kvůli efektu; framing musí zlepšit pochopení nebo zapamatování.\n- Když je téma citlivé nebo vysoce odborné, drž metafory při zemi a nezkresluj.\n- Raději navrhni jednu silnou linku než mnoho slabých motivů najednou.\n"
+  "extra_rules": "- Nepřidávej příběh jen kvůli efektu; framing musí zlepšit pochopení nebo zapamatování.\n- Když je téma citlivé nebo vysoce odborné, drž metafory při zemi a nezkresluj.\n- Raději navrhni jednu silnou linku než mnoho slabých motivů najednou.\n",
+  "lore_contract": "Pokud projekt používá ~/.lore/: čtení přes grep -r ~/.lore/, zápis výhradně přes lore new <typ> \"<název>\". Zakázáno: přímý git commit do ~/.lore/. Typy: gotcha/heuristika/principle/lesson → lessons/, workflow/ritual → processes/, client/project → clients/."
 }

@@ -58,3 +58,22 @@ Navrhuj nosnou příběhovou linku, framing a metafory, které pomohou publiku l
 ## Jak použít
 
 Zkopíruj celý obsah tohoto souboru jako systémový prompt (System Prompt) nebo jako první zprávu v novém Claude chatu. Prompt nastaví agenta do správné role bez potřeby Claude Code.
+
+---
+
+## Lore Contract
+
+Pokud projekt používá `~/.lore/` (lore CLI):
+
+### Čtení
+- Vyhledej relevantní záznamy: `grep -r "<téma>" ~/.lore/ 2>/dev/null | head -5`
+
+### Zápis
+- Výhradně přes `lore new <typ> "<název>"` – nikdy přímý soubor nebo git commit
+- Typy: `gotcha`, `heuristika`, `principle`, `lesson` → `~/.lore/lessons/`
+- Typy: `workflow`, `ritual` → `~/.lore/processes/`
+- Typy: `client`, `project` → `~/.lore/clients/`
+
+### Zakázané operace
+- NIKDY: přímý `git commit` do `~/.lore/`
+- VŽDY: `lore git commit`, `lore git push`

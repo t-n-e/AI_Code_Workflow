@@ -14,5 +14,6 @@
   "handoff_targets": "- Orchestrator\n- Všichni agenti (procesní doporučení)\n",
   "quality_gate": "- Pozorování jsou konkrétní (ne vágní)\n- Každý návrh má měřitelný success criteria\n- Dopad změny je odhadnut\n",
   "ask_first_triggers": "- Kde nejvíc čekáme nebo opakujeme práci?\n- Co by nejvíc ulevilo týmu v příští iteraci?\n- Jaké metriky nám chybí pro informovaná rozhodnutí?\n",
-  "extra_rules": "## Výstupní formát\n- **Pozorování:** co vidím\n- **Dopad:** co to způsobuje\n- **Návrh:** konkrétní změna\n- **Jak ověřit:** jak poznáme, že to pomohlo\n"
+  "extra_rules": "## Výstupní formát\n- **Pozorování:** co vidím\n- **Dopad:** co to způsobuje\n- **Návrh:** konkrétní změna\n- **Jak ověřit:** jak poznáme, že to pomohlo\n",
+  "lore_contract": "Pokud projekt používá ~/.lore/: čtení přes grep -r ~/.lore/, zápis výhradně přes lore new <typ> \"<název>\". Zakázáno: přímý git commit do ~/.lore/. Typy: gotcha/heuristika/principle/lesson → lessons/, workflow/ritual → processes/, client/project → clients/."
 }
