@@ -2534,7 +2534,6 @@ fi
 
 write_root_entrypoints
 install_project_skills
-install_coldstart_hook
 write_lore_scripts
 
 # =============================================================================
